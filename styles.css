@@ -8,7 +8,7 @@ body{
     background-image: url("./images/stars-background.jpg");
 }
 
-#moviesList {
+#moviesList, favoritesGallery{
     padding-left: 2%;
     background-color: aliceblue;
     font-size: 2rem;
@@ -36,11 +36,17 @@ body{
   #searchInput {
     font-size: 2rem; /* Twice as large font size */
     height: 40px; /* Increased height for the text box */
-    width: 450px; /* Adjust width as needed */
+    width: 400px; /* Adjust width as needed */
   }
 
-  #search-box button {
+  #search-button {
     font-size: 2rem;
     height: 40px; /* Double the height of the button */
     width: 120px; /* Adjust width as needed */
+  }
+
+  #favs-button{
+    font-size: 2rem;
+    height: 40px; 
+    width: 300px; /* Adjust width as needed */
   }

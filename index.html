@@ -10,10 +10,12 @@
   <section id="search-box">
     <div id="input">
       <input type="text" id="searchInput" placeholder="Search for a movie">
-      <button onclick="searchMovies()">Search</button>
+      <button id="search-button" onclick="searchMovies()">Search</button>
+      <button id="favs-button" onclick="displayFavoritesGallery()">Show Favorites</button>
     </div>
   </section>
   <div id="moviesList"></div>
+  <div id="favoritesGallery"></div>
 
   <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
   <script src="script.js"></script>
