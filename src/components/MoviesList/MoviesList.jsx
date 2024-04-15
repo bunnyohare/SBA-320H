@@ -1,9 +1,11 @@
 import React from 'react';
 import './moviesList.css';
 
-function MoviesList({ movies, addToFavorites }) {
+function MoviesList({ movies, addToFavorites, showFavorites }) {
+
   return (
-    <div id="moviesList">
+    <div id="moviesList" style={{ display: showFavorites ? 'none' : 'block' }}>
+      {/* Conditionally render the movieList based on showFavorites */}
       {movies.map(movie => (
         <div key={movie.imdbID}>
           <h3>{movie.Title}</h3>

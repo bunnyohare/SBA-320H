@@ -5,6 +5,7 @@
   }
 
 #favoritesGallery {
+  border: 5px solid green;
   padding-left: 2%;
   background-color: aliceblue;
   font-size: 2rem;

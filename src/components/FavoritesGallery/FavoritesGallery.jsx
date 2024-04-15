@@ -2,14 +2,14 @@ import React, { useState, useEffect } from 'react';
 import axios from 'axios';
 import './favoritesGallery.css';
 
-function FavoritesGallery({ favorites, OMDB_URL }) {
+function FavoritesGallery({ favorites, OMDB_URL, showFavorites }) {
   const [favoriteMovies, setFavoriteMovies] = useState([]);
 
   useEffect(() => {
     const fetchFavoriteMovies = async () => {
       try {
         const favoriteMoviesData = await Promise.all(favorites.map(async (imdbID) => {
-          const response = await axios.get(`${OMDB_URL}i=${imdbID}`);
+          const response = await axios.get(`${OMDB_URL}&i=${imdbID}`);
           return response.data;
         }));
         setFavoriteMovies(favoriteMoviesData);
@@ -18,11 +18,15 @@ function FavoritesGallery({ favorites, OMDB_URL }) {
       }
     };
 
-    fetchFavoriteMovies();
-  }, [favorites, OMDB_URL]);
+    if (showFavorites) {
+      // console.log('Fetching favorite movies...');
+      fetchFavoriteMovies();
+    }
+  }, [favorites, OMDB_URL, showFavorites]);
 
   return (
-    <div id="favoritesGallery">
+    <div id="favoritesGallery" style={{ display: showFavorites ? 'block' : 'none' }}>
+      {/* Conditionally render the gallery based on showFavorites */}
       {favoriteMovies.map(movie => (
         <div key={movie.imdbID}>
           <h3>{movie.Title}</h3>

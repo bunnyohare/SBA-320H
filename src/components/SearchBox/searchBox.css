@@ -17,14 +17,23 @@
     width: 400px; /* Adjust width as needed */
   }
 
-  #search-button {
-    font-size: 2rem;
-    height: 40px; /* Double the height of the button */
-    width: 120px; /* Adjust width as needed */
+  #search-box button {
+    margin-left: 1rem;
   }
 
-  #favs-button{
-    font-size: 2rem;
-    height: 40px; 
-    width: 300px; /* Adjust width as needed */
-  }
+  /* #search-button { */
+    /* margin-left: 1rem;
+    font-size: 2rem; */
+     /* Double the height of the button */
+    /* height: 40px; */
+    /* Adjust width as needed */
+    /* width: 120px; */
+  /* } */
+
+  /* #favorites-button { */
+    /* margin-left: 1rem; */
+    /* font-size: 2rem; */
+    /* height: 40px; */
+     /* Adjust width as needed */
+    /* width: 300px; */
+  /* } */

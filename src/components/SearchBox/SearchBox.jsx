@@ -1,16 +1,16 @@
-import React, { useState } from 'react';
-import './searchBox.css';
+import React, { useState } from "react";
+import "./searchBox.css";
 
-function SearchBox({ searchMovies }) {
-  const [searchInput, setSearchInput] = useState('');
+function SearchBox({ searchMovies, toggleFavorites }) {
+  const [searchInput, setSearchInput] = useState("");
 
   const handleSearch = () => {
     searchMovies(searchInput);
   };
 
   const handleKeyDown = (event) => {
-    if (event.key === 'Enter') {
-      handleSearch();
+    if (event.key === "Enter") {
+      handleSearch(); // Call handleSearch function when Enter key is pressed
     }
   };
 
@@ -24,7 +24,9 @@ function SearchBox({ searchMovies }) {
           onKeyDown={handleKeyDown}
           placeholder="Search for a movie"
         />
+
         <button onClick={handleSearch}>Search</button>
+        <button onClick={toggleFavorites}>Show Favorites</button>
       </div>
     </section>
   );
