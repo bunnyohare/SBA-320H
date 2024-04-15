@@ -8,13 +8,14 @@ body{
     background-image: url("./images/stars-background.jpg");
 }
 
-#moviesList, favoritesGallery{
-    padding-left: 2%;
-    background-color: aliceblue;
-    font-size: 2rem;
-    width: 100%;
-    max-width: 800px; 
-    margin: 100px auto 0; /* Pushed down by 100 pixels and centered horizontally */
+#moviesList,
+#favoritesGallery {
+  padding-left: 2%;
+  background-color: aliceblue;
+  font-size: 2rem;
+  width: 100%;
+  max-width: 800px;
+  margin: 100px auto 0; /* Pushed down by 100 pixels and centered horizontally */
 }
 
 #moviesList div{
