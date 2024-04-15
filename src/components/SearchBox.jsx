@@ -7,7 +7,7 @@ function SearchBox({ searchMovies }) {
     searchMovies(searchInput);
   };
 
-  const handleKeyPress = (event) => {
+  const handleKeyDown = (event) => {
     if (event.key === 'Enter') {
       handleSearch();
     }
@@ -20,7 +20,7 @@ function SearchBox({ searchMovies }) {
           type="text"
           value={searchInput}
           onChange={(e) => setSearchInput(e.target.value)}
-          onKeyPress={handleKeyPress}
+          onKeyDown={handleKeyDown}
           placeholder="Search for a movie"
         />
         <button onClick={handleSearch}>Search</button>
