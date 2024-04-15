@@ -5,6 +5,7 @@ import FavoritesGallery from './components/FavoritesGallery/FavoritesGallery';
 import axios from 'axios';
 import "./App.css";
 
+
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
