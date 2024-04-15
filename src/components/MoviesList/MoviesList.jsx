@@ -5,6 +5,7 @@ function MoviesList({ movies, addToFavorites, showFavorites }) {
 
   return (
     <div id="moviesList" style={{ display: showFavorites ? 'none' : 'block' }}>
+      <h3 id="Movie-List-Heading">Found Movies List</h3>
       {/* Conditionally render the movieList based on showFavorites */}
       {movies.map(movie => (
         <div key={movie.imdbID}>

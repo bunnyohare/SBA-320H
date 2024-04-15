@@ -8,8 +8,8 @@ body{
   background-image: url("https://raw.githubusercontent.com/bunnyohare/SBA-320H/main/images/stars-background.jpg");
 }
 
-#moviesList,
-#favoritesGallery {
+#moviesList{
+  border: 5px solid rgb(182, 131, 161);
   padding-left: 2%;
   background-color: aliceblue;
   font-size: 2rem;
@@ -51,3 +51,11 @@ body{
     height: 40px; 
     width: 300px; /* Adjust width as needed */
   }
+
+  #Movie-List-Heading{
+    color: rgb(90, 42, 95);
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    margin-top: 40px; /* Push down by 100 pixels */
+    margin-bottom: 40px;
+}

@@ -5,11 +5,19 @@
   }
 
 #favoritesGallery {
-  border: 5px solid green;
+  border: 5px solid rgb(182, 131, 161);
   padding-left: 2%;
   background-color: aliceblue;
   font-size: 2rem;
   width: 100%;
   max-width: 800px;
   margin: 100px auto 0; /* Pushed down by 100 pixels and centered horizontally */
+}
+
+#Fav-List-Heading{
+    color: rgb(90, 42, 95);
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    margin-top: 40px; /* Push down by 100 pixels */
+    margin-bottom: 40px;
 }

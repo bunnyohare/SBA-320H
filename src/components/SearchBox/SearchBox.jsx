@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import "./searchBox.css";
 
-function SearchBox({ searchMovies, toggleFavorites }) {
+function SearchBox({ searchMovies, toggleFavorites, initialLoad }) {
   const [searchInput, setSearchInput] = useState("");
 
   const handleSearch = () => {
@@ -12,6 +12,10 @@ function SearchBox({ searchMovies, toggleFavorites }) {
     if (event.key === "Enter") {
       handleSearch(); // Call handleSearch function when Enter key is pressed
     }
+  };
+
+  const handleShowFavorites = () => {
+    toggleFavorites();
   };
 
   return (
@@ -26,7 +30,7 @@ function SearchBox({ searchMovies, toggleFavorites }) {
         />
 
         <button onClick={handleSearch}>Search</button>
-        <button onClick={toggleFavorites}>Show Favorites</button>
+        <button onClick={handleShowFavorites} disabled={initialLoad}>Show Favorites</button>
       </div>
     </section>
   );

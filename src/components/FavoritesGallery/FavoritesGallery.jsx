@@ -26,6 +26,7 @@ function FavoritesGallery({ favorites, OMDB_URL, showFavorites }) {
 
   return (
     <div id="favoritesGallery" style={{ display: showFavorites ? 'block' : 'none' }}>
+    <h3 id="Fav-List-Heading">Favorite Movie List</h3>
       {/* Conditionally render the gallery based on showFavorites */}
       {favoriteMovies.map(movie => (
         <div key={movie.imdbID}>

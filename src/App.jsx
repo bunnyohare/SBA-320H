@@ -5,20 +5,18 @@ import FavoritesGallery from './components/FavoritesGallery/FavoritesGallery';
 import axios from 'axios';
 import "./App.css";
 
-
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
-  const [showFavorites, setShowFavorites] = useState(false); // Define showFavorites state
+  const [showFavorites, setShowFavorites] = useState(false);
+  const [initialLoad, setInitialLoad] = useState(true); // Track initial load
 
   const OMDB_URL = import.meta.env.VITE_OMDB_URL_WITH_KEY;
 
   const searchMovies = async (title) => {
-    setShowFavorites(!showFavorites); // Toggle the state to show/hide FavoritesGallery
-    // console.log('Searching for:', title);
+    setShowFavorites(false); // Hide FavoritesGallery when searching for movies
     try {
       const response = await axios.get(`${OMDB_URL}&s=${title}&type=movie`);
-      // console.log('API Response:', response);
       setMovies(response.data.Search || []);
     } catch (error) {
       console.error('Error:', error);
@@ -26,18 +24,17 @@ function App() {
   };
 
   useEffect(() => {
-    // Retrieve favorites from localStorage
     const storedFavorites = JSON.parse(localStorage.getItem('favorites')) || [];
-    // console.log('Stored favorites:', storedFavorites);
     setFavorites(storedFavorites);
-  }, []); // Load favorites only once on component mount
+    // Update initialLoad based on whether there are favorites on component mount
+    setInitialLoad(storedFavorites.length === 0);
+  }, []);
 
   const addToFavorites = (imdbID) => {
     try {
-      let updatedFavorites = [...favorites, imdbID]; // Add new favorite to the favorites array
+      let updatedFavorites = [...favorites, imdbID];
       setFavorites(updatedFavorites);
-      localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); // Update localStorage
-      // console.log('Favorites after adding:', updatedFavorites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       alert('Movie added to favorites!');
     } catch (error) {
       console.error('Error:', error);
@@ -45,18 +42,24 @@ function App() {
   };
 
   const toggleFavorites = async () => {
-    // console.log('Toggle favorites button clicked');
-    await setShowFavorites(!showFavorites); // Toggle the state to show/hide FavoritesGallery
-    console.log('showFavorites:', showFavorites); // Check if showFavorites state is updated
+    setShowFavorites(!showFavorites);
   };
 
   return (
     <div>
       <div className="search-container">
-        <SearchBox searchMovies={searchMovies} toggleFavorites={toggleFavorites} />
+        <SearchBox searchMovies={searchMovies} toggleFavorites={toggleFavorites} initialLoad={initialLoad} />
       </div>
-      <MoviesList movies={movies} addToFavorites={addToFavorites} showFavorites={showFavorites}/>
-      <FavoritesGallery favorites={favorites} OMDB_URL={OMDB_URL} showFavorites={showFavorites} />
+      {initialLoad ? (
+        <div>
+          <h2>No favorites yet!</h2>
+        </div>
+      ) : (
+        <div>
+          <MoviesList movies={movies} addToFavorites={addToFavorites} showFavorites={showFavorites}/>
+          <FavoritesGallery favorites={favorites} OMDB_URL={OMDB_URL} showFavorites={showFavorites} />
+        </div>
+      )}
     </div>
   );
 }
