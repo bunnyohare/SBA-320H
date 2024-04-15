@@ -1,13 +1,14 @@
 import React, { useState, useEffect } from 'react';
-import SearchBox from './components/SearchBox';
-import MoviesList from './components/MoviesList';
-import FavoritesGallery from './components/FavoritesGallery';
+import SearchBox from './components/SearchBox/SearchBox';
+import MoviesList from './components/MoviesList/MoviesList';
+import FavoritesGallery from './components/FavoritesGallery/FavoritesGallery';
 import axios from 'axios';
 import "./App.css";
 
 function App() {
   const [movies, setMovies] = useState([]);
   const [favorites, setFavorites] = useState([]);
+  const [showFavorites, setShowFavorites] = useState(false); // Define showFavorites state
   const OMDB_URL = import.meta.env.VITE_OMDB_URL_WITH_KEY;
 
   const searchMovies = async (title) => {
@@ -41,25 +42,26 @@ function App() {
 
   const addToFavorites = (imdbID) => {
     try {
-      let favorites = JSON.parse(localStorage.getItem('favorites')) || [];
-      if (!favorites.includes(imdbID)) {
-        favorites.push(imdbID);
-        localStorage.setItem('favorites', JSON.stringify(favorites));
-        alert('Movie added to favorites!');
-        setFavorites(favorites);
-      } else {
-        alert('Movie is already in favorites!');
-      }
+      let updatedFavorites = [...favorites, imdbID]; // Add new favorite to the favorites array
+      setFavorites(updatedFavorites);
+      localStorage.setItem('favorites', JSON.stringify(updatedFavorites)); // Update localStorage
+      alert('Movie added to favorites!');
     } catch (error) {
       console.error('Error:', error);
     }
   };
+  const toggleFavorites = () => {
+    setShowFavorites(!showFavorites); // Toggle the state to show/hide FavoritesGallery
+  };
 
   return (
     <div>
-      <SearchBox searchMovies={searchMovies} />
+      <div className="search-container">
+        <SearchBox searchMovies={searchMovies} />
+        <button onClick={toggleFavorites}>Show Favorites</button> {/* Button to toggle FavoritesGallery */}
+      </div>
       <MoviesList movies={movies} addToFavorites={addToFavorites} />
-      <FavoritesGallery favorites={favorites} OMDB_URL={OMDB_URL} />
+      {showFavorites && <FavoritesGallery favorites={favorites} OMDB_URL={OMDB_URL} />} {/* Render FavoritesGallery conditionally */}
     </div>
   );
 }

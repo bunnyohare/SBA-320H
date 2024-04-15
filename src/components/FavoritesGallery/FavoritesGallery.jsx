@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import './favoritesGallery.css';
 
 function FavoritesGallery({ favorites, OMDB_URL }) {
   const [favoriteMovies, setFavoriteMovies] = useState([]);

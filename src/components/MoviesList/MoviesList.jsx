@@ -1,4 +1,5 @@
 import React from 'react';
+import './moviesList.css';
 
 function MoviesList({ movies, addToFavorites }) {
   return (

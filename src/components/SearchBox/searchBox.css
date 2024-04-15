@@ -1,0 +1,30 @@
+
+#search-box {
+    display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    align-items: flex-end; /* Align items on the bottom */
+    margin-top: 100px; /* Push down by 100 pixels */
+  }
+
+  #search-box #input {
+    display: inline-block; /* Ensures the input container is displayed as inline-block */
+    margin-right: 10px; /* Add some space between input and button */
+  }
+
+  #searchInput {
+    font-size: 2rem; /* Twice as large font size */
+    height: 40px; /* Increased height for the text box */
+    width: 400px; /* Adjust width as needed */
+  }
+
+  #search-button {
+    font-size: 2rem;
+    height: 40px; /* Double the height of the button */
+    width: 120px; /* Adjust width as needed */
+  }
+
+  #favs-button{
+    font-size: 2rem;
+    height: 40px; 
+    width: 300px; /* Adjust width as needed */
+  }
