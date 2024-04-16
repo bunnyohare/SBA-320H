@@ -59,3 +59,9 @@ body{
     margin-top: 40px; /* Push down by 100 pixels */
     margin-bottom: 40px;
 }
+#Welcome{
+   display: flex; /* Use flexbox layout */
+    justify-content: center; /* Center horizontally */
+    margin-top: 40px; /* Push down by 100 pixels */
+    margin-bottom: 40px;
+}

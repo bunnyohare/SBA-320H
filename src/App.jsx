@@ -52,7 +52,7 @@ function App() {
       </div>
       {initialLoad ? (
         <div>
-          <h2>No favorites yet!</h2>
+          <h2 id="No-Favs">No favorites yet!</h2>
         </div>
       ) : (
         <div>
