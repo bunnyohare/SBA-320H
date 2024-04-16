@@ -50,14 +50,14 @@ function App() {
       <div className="search-container">
         <SearchBox searchMovies={searchMovies} toggleFavorites={toggleFavorites} initialLoad={initialLoad} />
       </div>
-      {initialLoad ? (
+      {movies.length < 1 && initialLoad ? (
         <div id="Welcome-Box">
           <h3 id="Welcome">Welcome to the Movie Finder</h3>
           <p id="No-Favs">Please search for a movie title to add to favorites.</p>
         </div>
       ) : (
         <div>
-          <MoviesList movies={movies} addToFavorites={addToFavorites} showFavorites={showFavorites}/>
+          <MoviesList movies={movies} addToFavorites={addToFavorites} showFavorites={showFavorites} initialLoad={initialLoad}/>
           <FavoritesGallery favorites={favorites} OMDB_URL={OMDB_URL} showFavorites={showFavorites} />
         </div>
       )}

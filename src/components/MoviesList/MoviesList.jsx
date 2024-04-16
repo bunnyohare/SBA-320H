@@ -1,7 +1,7 @@
 import React from 'react';
 import './moviesList.css';
 
-function MoviesList({ movies, addToFavorites, showFavorites }) {
+function MoviesList({ movies, addToFavorites, showFavorites, initialLoad }) {
   if ( movies.length <1 && !showFavorites ){
     return (
       <div id="moviesList">
@@ -22,7 +22,7 @@ function MoviesList({ movies, addToFavorites, showFavorites }) {
           <p>Year: {movie.Year}</p>
           <p>IMDb ID: {movie.imdbID}</p>
           <img src={movie.Poster} alt={movie.Title} />
-          <button onClick={() => addToFavorites(movie.imdbID)}>Add to Favorites</button>
+          <button onClick={() => {addToFavorites(movie.imdbID);  setInitialLoad(false)}}>Add to Favorites</button>
         </div>
       ))}
     </div>
