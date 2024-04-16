@@ -36,6 +36,7 @@ function App() {
       setFavorites(updatedFavorites);
       localStorage.setItem('favorites', JSON.stringify(updatedFavorites));
       alert('Movie added to favorites!');
+      setInitialLoad(false);
     } catch (error) {
       console.error('Error:', error);
     }
