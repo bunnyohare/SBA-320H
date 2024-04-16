@@ -9,6 +9,11 @@ OMDb API via  https://www.omdbapi.com/
 Background image based on "Milky way" By 24Novembers from Adobe Stock
 https://as1.ftcdn.net/v2/jpg/03/37/57/74/1000_F_337577487_VpfpvGTSY1rNGDWM7p4pKfMUxgIxqq3C.jpg
 
+Empty Movie Poster image based on "Empty cinema poster panel"
+By Who is Danny from Adobe Stock
+https://as1.ftcdn.net/v2/jpg/03/01/83/28/1000_F_301832885_XSg1F3ba571JjJ1RCrSnXs5VFvyopVMD.jpg
+
+
 ## To run code from this Github:
 
 1. Run `npm install`

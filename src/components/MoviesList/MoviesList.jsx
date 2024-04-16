@@ -21,7 +21,7 @@ function MoviesList({ movies, addToFavorites, showFavorites, initialLoad }) {
           <h3>{movie.Title}</h3>
           <p>Year: {movie.Year}</p>
           <p>IMDb ID: {movie.imdbID}</p>
-          <img src={movie.Poster} alt={movie.Title} />
+          <img src={movie.Poster} onError={(e) => { e.target.onerror = null; e.target.src = "images/placeholder-omdb.jpg"; }} alt={movie.Title} />
           <button onClick={() => {addToFavorites(movie.imdbID);  setInitialLoad(false)}}>Add to Favorites</button>
         </div>
       ))}
