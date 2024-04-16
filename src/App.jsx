@@ -52,7 +52,8 @@ function App() {
       </div>
       {initialLoad ? (
         <div>
-          <h2 id="No-Favs">No favorites yet!</h2>
+          <h3 id="Welcome">Welcome to the Movie Finder</h3>
+          <p id="No-Favs">Please search for a movie title to add to favorites.</p>
         </div>
       ) : (
         <div>
